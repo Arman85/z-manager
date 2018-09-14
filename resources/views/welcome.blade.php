@@ -9,6 +9,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/icons/favicon.png')}}">
+        <!-- <link rel="icon" href="mt-demo/66300/66367/mt-content/uploads/2018/01/favicon1.png" type="image/png" /> -->
 
         <!-- Styles -->
         <style>
