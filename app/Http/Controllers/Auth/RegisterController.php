@@ -38,7 +38,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('auth'); //Эту запись сделал что бы запретить новую регистрацию пользователей
+        //$this->middleware('auth'); //Эту запись сделал что бы запретить новую регистрацию пользователей
     }
 
     /**

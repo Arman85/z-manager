@@ -11,11 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', 'SiteController@index');
+Route::get('/dashboard', 'SiteController@index')->name('frontend.index');
 
 
 Auth::routes();

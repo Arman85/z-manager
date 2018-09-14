@@ -14,11 +14,16 @@
                         </div>
                     @endif
 
-                    Вы вошли в систему!
-                    <div style="margin: 15px 0;">
-                        <a href="{{ route('backend.index') }}" class="btn btn-primary">Перейти в панель администратора</a>
-                    </div>
-                    
+                    Приветсвую Вас {{ Auth::user()->name }}! Вы вошли в систему.
+                    @if(Auth::user()->name == 'Manager')
+                        <div style="margin: 15px 0;">
+                            <a href="{{ route('frontend.index') }}" class="btn btn-primary">Перейти в Dashboard</a>
+                        </div>
+                    @else
+                        <div style="margin: 15px 0;">
+                            <a href="{{ route('backend.index') }}" class="btn btn-primary">Перейти в панель администратора</a>
+                        </div>    
+                    @endif
                 </div>
             </div>
         </div>
