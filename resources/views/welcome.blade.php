@@ -80,7 +80,7 @@
                         @auth
                             <a href="{{ url('/dashboard') }}" style="background-color: #636b6f; border-radius: 5px; padding: 10px; color: #fff">Перейти</a>
                         @else
-                            <a href="{{ route('login') }}">Войти</a>  
+                            <a href="{{ route('login') }}" style="background-color: #636b6f; border-radius: 5px; padding: 10px; color: #fff">Войти</a>  
                         @endauth      
                     </div>
                 @endif
