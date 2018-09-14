@@ -1,0 +1,36 @@
+
+.percent{
+	margin-left: 4px;
+}
+
+.percent,
+progress.progress{
+	display: inline-block;
+}
+
+progress.progress{
+	width: 55%;
+	margin-bottom: 0 !important;
+}
+
+table th,
+table td{
+	text-align: center !important;
+}
+
+.index-table{
+	width: 99%;
+}
+
+.index-table thead tr th{
+	/*color: #fff;*/
+}
+
+.index-table tbody{
+	border-bottom: 1px solid #D3E7F4;
+}
+
+.index-table tbody tr td{
+	/*background-color: #D3E7F4;*/
+	border: 1px solid #D3E7F4;
+}
