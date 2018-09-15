@@ -14,4 +14,15 @@ class Sale extends Model
     {
     	return $this->belongsTo(Manager::class);
     }
+
+    public static function getTotalSumm()
+    {
+    	$sales = self::all();
+    	$total_summ = 0;
+    	foreach($sales as $sale)
+    	{
+    		$total_summ = $sale->sum('summa');
+    		return $total_summ;
+    	}
+    }
 }

@@ -14,10 +14,8 @@ class SiteController extends Controller
 {
     //
     public function index()
-    {
-    	// $test = Data::getFormula();
-    	//dd($test);
-    	$datas = Data::all();
+    {   
+        
         $managers = Manager::with('sales')->get();
         //$managers = Manager::with('sales')->get();
         // foreach($managers as $manager)
@@ -27,12 +25,19 @@ class SiteController extends Controller
         //         echo $m->name . '</br>';
         //     }
         // }
-        //dd($managers);
         //printf("Right now in Shymkent is %s", Carbon::now('Asia/Almaty'));  //implicit __toString()
         $currentDate = Carbon::now('Asia/Almaty')->format('d-m-Y H:i');
+
         // $test = Carbon::now('Asia/Almaty')->format('d');
         // echo Carbon::diffInDays()->$test;
+        
+        // Получаю общую сумму общего плана
+        $total_overall = Manager::overall_plan();
+        // Получаю общую сумму по факту выполненного плана
+        $total_current_summ = Sale::getTotalSumm();
+        
+        //dd($total_current_summ);
     	
-    	return view('frontend.index', compact('datas', 'managers', 'currentDate'));
+    	return view('frontend.index', compact('datas', 'managers', 'currentDate', 'total_overall', 'total_current_summ'));
     }
 }

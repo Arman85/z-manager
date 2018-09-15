@@ -14,4 +14,17 @@ class Manager extends Model
     {
     	return $this->hasMany(Sale::class);
     }
+
+    public static function overall_plan()
+    {
+    	$overall_plans = self::where('overall_plan','!=', null)->get();
+    	$total_overall_plan;
+    	foreach($overall_plans as $plan)
+        {
+
+            $total_overall_plan = $plan->sum('overall_plan');
+            return $total_overall_plan;
+
+        }
+    }
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="container-fluid">
-		<div class="container">
+		<div class="container" style="margin-bottom: 20px">
 			<div style="margin: 0 25px; width: 100%; height: 15px;"></div>
 			<center><h1 style="font-size: 2.5rem;">Just do it!</h1></center>
 			<div style="margin: 0 25px; width: 100%; height: 15px;"></div>
@@ -60,6 +60,28 @@
 								<h3>Нет данных</h3>
 							</center>
 						@endforelse
+					</tbody>
+				</table>
+
+				<!-- Общие показатели -->
+				<table class="table table-bordered text-center index-table">
+					<thead style="background-color: #A3CEE9;">
+						<tr>
+							<th>Сумма общего плана</th>
+							<th>Факт по общему плану</th>
+							<th>Общая шкала выполнения плана</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ $total_overall }}</td>
+							<td>{{ $total_current_summ }}</td>
+							<td>
+								<progress class="progress is-success" id="progress" min="0" max="100" value="{{ $total_current_summ / $total_overall * 100 }}">
+								</progress>
+								<span class="percent">{{ round( $total_current_summ / $total_overall * 100 ) }}%</span>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
