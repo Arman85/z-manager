@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Manager;
 use App\Sale;
 use Auth;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -15,24 +16,11 @@ class AdminController extends Controller
     {
         if (Auth::user()->name == 'admin')
         {
-            // $managers = Manager::all();
-            $managers = Manager::with('sales')->get();
-            // $sales = Sale::all();
-            //  $datas = [
-            //      'managers' => $managers,
-            //      'sales' => $sales
-            //  ];
-            //dd($managers);
-            //$manager = Manager::where('id', 7)->first();
-            //dd($manager->sales->sum('id'));
-            // foreach($managers as $manager)
-            // {
-            //  foreach($manager->sales as $sale)
-            //  {
-            //      echo $sale->summa . '</br>';
-            //  }
-            // }
-            //dd($managers);
+            
+            $managers = Manager::with(['sales' => function ($query) {
+                $query->where('month', Carbon::now()->format('m'));
+            }])->get();
+            
             return view('backend.index', compact('managers'));
         }
         else

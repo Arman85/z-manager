@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Sale;
 use App\Manager;
+use Carbon\Carbon;
 
 class SalesController extends Controller
 {
@@ -50,8 +51,10 @@ class SalesController extends Controller
 
         $data = $request->except('_token');
         //dd($data);
-
-        Sale::create($data);
+        $datas = Sale::where('created_at', '!', null);
+        $datas->created_at = Carbon::now();
+        //dd($datas->created_at->month);
+        Sale::create($data, $datas);
         return redirect()->route('sales.index')->with('success', 'Данные добавлены');
 
     }

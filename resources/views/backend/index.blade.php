@@ -20,17 +20,17 @@
 					</thead>
 					<tbody>
 						@forelse ( $managers as $manager )
-						<tr>
-							<td>{{ $manager->name }}</td>
-							<td>{{ $manager->department }}</td>
-							<td>{{ $manager->overall_plan }}</td>
-							<td>{{ $manager->sales->sum('summa') }}</td>
-							<td>
-								<progress class="progress is-success" id="progress" min="0" max="100" value="{{$manager->sales->sum('summa') / $manager->overall_plan * 100}}">
-								</progress>
-								<span class="percent">{{ round( $manager->sales->sum('summa') / $manager->overall_plan * 100 ) }}&nbsp;%</span>
-							</td>
-						</tr>
+							<tr>
+								<td>{{ $manager->name }}</td>
+								<td>{{ $manager->department }}</td>
+								<td>{{ $manager->overall_plan }}</td>
+								<td>{{ $manager->sales->sum('summa') }}</td>
+								<td>
+									<progress class="progress is-success" id="progress" min="0" max="100" value="{{$manager->sales->sum('summa') / $manager->overall_plan * 100}}">
+									</progress>
+									<span class="percent">{{ round( $manager->sales->sum('summa') / $manager->overall_plan * 100 ) }}&nbsp;%</span>
+								</td>
+							</tr>
 						@empty
 							<h3>Нет данных</h3>
 						@endforelse

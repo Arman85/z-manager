@@ -28,10 +28,9 @@
 							<tr>
 								<td>{{$manager->name}}</td>
 								<td>{{$manager->department}}</td>
-								
 								<td>{{$manager->overall_plan}}</td>
 								<td>{{$manager->sales->sum('summa')}}</td>
-								<td>
+								<td align="left">
 									<progress class="progress is-success" id="progress" min="0" max="100" value="{{$manager->sales->sum('summa') / $manager->overall_plan * 100}}">
 									</progress>
 									<span class="percent">{{ round( $manager->sales->sum('summa') / $manager->overall_plan * 100 ) }}%</span>
@@ -53,12 +52,12 @@
 										<img src="{{ asset('images/smiles/100.jpg') }}" alt="" style="max-width: 100%;width: 45px; height: 45px;">	
 									@endif
 								</td>
-								<td>{{ $currentDate }}</td>
-							</tr>
-						@empty
-							<center>
-								<h3>Нет данных</h3>
-							</center>
+								<td width="10%">{{ $currentDate }}</td>
+							</tr>	
+							@empty
+								<center>
+									<h3>Нет данных</h3>
+								</center>
 						@endforelse
 					</tbody>
 				</table>

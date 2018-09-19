@@ -15,6 +15,7 @@
 				<div class="form-group">
 					<strong>{{ Form::label('summa', 'Сумма') }}</strong>
 					{{ Form::text('summa', null, array('class' => 'form-control')) }}
+					<input type="hidden" name="month" value="{{ Carbon\Carbon::now()->format('m') }}">
 				</div>
 				<div class="form-group">
 					<strong>{{ Form::label('manager_id', 'Выбор менеджера') }}</strong>
